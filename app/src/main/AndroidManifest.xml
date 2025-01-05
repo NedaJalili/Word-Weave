@@ -24,9 +24,12 @@
             </intent-filter>
         </activity>
 
+<<<<<<< HEAD
         <activity android:name=".MenuActivity" />
 
 
+=======
+>>>>>>> a060dea9a5e2662a31890c1745c2571ea837df57
 
     </application>
 
