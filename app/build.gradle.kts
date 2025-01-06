@@ -11,7 +11,7 @@ android {
     defaultConfig {
         applicationId = "com.nedajalili.wordweave"
         minSdk = 27
-        targetSdk = 34
+        targetSdk = 27
         versionCode = 1
         versionName = "1.0"
 
