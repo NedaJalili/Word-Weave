@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:elevation="4dp"
+    android:radius="8dp">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:gravity="center_vertical">
+
+        <!-- شماره مرحله -->
+        <TextView
+            android:id="@+id/levelNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:textSize="18sp"
+            android:textColor="@android:color/black"
+            android:layout_marginEnd="16dp" />
+
+        <!-- عنوان مرحله -->
+        <TextView
+            android:id="@+id/levelTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Level 1"
+            android:textSize="18sp"
+            android:textColor="@android:color/black" />
+
+        <!-- قفل یا باز بودن مرحله -->
+        <ImageView
+            android:id="@+id/lockIcon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_lock" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
