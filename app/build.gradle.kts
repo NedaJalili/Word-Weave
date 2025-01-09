@@ -10,8 +10,8 @@ android {
 
     defaultConfig {
         applicationId = "com.nedajalili.wordweave"
-        minSdk = 27
-        targetSdk = 27
+        minSdk = 30
+        targetSdk = 30
         versionCode = 1
         versionName = "1.0"
 
@@ -58,4 +58,5 @@ dependencies {
 
     // اضافه کردن appcompat برای سازگاری بیشتر
     implementation("androidx.appcompat:appcompat:1.6.1")
+    implementation 'androidx.recyclerview:recyclerview:1.3.1'
 }
