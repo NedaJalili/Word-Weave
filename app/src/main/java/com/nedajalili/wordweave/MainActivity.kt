@@ -1,37 +1,21 @@
 package com.nedajalili.wordweave
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.material3.Button
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import com.nedajalili.wordweave.ui.theme.WordWeaveTheme
+import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 
-class MainActivity : ComponentActivity() {
+class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent {
-            WordWeaveTheme {
-                StartGameScreen()
-            }
-        }
-    }
-}
+        setContentView(R.layout.activity_main) // اتصال به فایل XML مربوط به MainActivity
 
-@Composable
-fun StartGameScreen() {
-    // طراحی صفحه اصلی با یک دکمه در مرکز
-    Box(
-        modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center
-    ) {
-        Button(onClick = { /* عمل مربوط به دکمه */ }) {
-            Text("Start Game")
+        // پیدا کردن دکمه و تنظیم کلیک
+        val startButton = findViewById<Button>(R.id.startButton)
+        startButton.setOnClickListener {
+            // انتقال به MenuActivity
+            val intent = Intent(this, MenuActivity::class.java)
+            startActivity(intent)
         }
     }
 }
