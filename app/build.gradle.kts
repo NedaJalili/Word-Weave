@@ -6,12 +6,12 @@ plugins {
 
 android {
     namespace = "com.nedajalili.wordweave"
-    compileSdk = 35
+    compileSdk = 35 // تغییر compileSdk به 30 برای هماهنگی با Android 11
 
     defaultConfig {
         applicationId = "com.nedajalili.wordweave"
-        minSdk = 30
-        targetSdk = 30
+        minSdk = 26 // حداقل نسخه API که از Android 5.0 پشتیبانی می‌کند
+        targetSdk = 35 // تنظیم targetSdk به 30 برای پشتیبانی کامل از اندروید 11
         versionCode = 1
         versionName = "1.0"
 
@@ -58,5 +58,7 @@ dependencies {
 
     // اضافه کردن appcompat برای سازگاری بیشتر
     implementation("androidx.appcompat:appcompat:1.6.1")
-    implementation 'androidx.recyclerview:recyclerview:1.3.1'
+    implementation("androidx.recyclerview:recyclerview:1.3.1")
+    implementation ("androidx.cardview:cardview:1.0.0")
+
 }
