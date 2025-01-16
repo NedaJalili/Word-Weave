@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@android:color/white">
+
+    <!-- نمایش جای خالی برای کلمه -->
+    <LinearLayout
+        android:id="@+id/wordContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="24dp" />
+
+    <!-- نمایش حروف درهم‌ریخته -->
+    <GridLayout
+        android:id="@+id/lettersGrid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:rowCount="2"
+        android:columnCount="4"
+        android:gravity="center"
+        android:layout_marginBottom="24dp" />
+
+    <!-- پیام برنده شدن یا باختن -->
+    <TextView
+        android:id="@+id/gameMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="18sp"
+        android:textAlignment="center"
+        android:textColor="@android:color/holo_red_dark"
+        android:layout_marginBottom="16dp"
+        android:visibility="gone" />
+
+    <!-- دکمه ادامه بازی -->
+    <Button
+        android:id="@+id/nextLevelButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Next Level"
+        android:backgroundTint="@android:color/holo_green_dark"
+        android:textColor="@android:color/white"
+        android:visibility="gone" />
+
+    <!-- نمایش تعداد جان‌ها -->
+    <TextView
+        android:id="@+id/livesTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Lives: 5"
+        android:textSize="16sp"
+        android:textColor="@android:color/black"
+        android:layout_marginBottom="16dp" />
+</LinearLayout>
