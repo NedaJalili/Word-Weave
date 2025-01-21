@@ -10,15 +10,15 @@
         android:id="@+id/welcomeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Select a Level"
+        android:text="Select a Part"
         android:textSize="24sp"
         android:layout_gravity="center_horizontal"
         android:textColor="@android:color/black"
         android:layout_marginBottom="16dp" />
 
-    <!-- RecyclerView برای نمایش مراحل -->
+    <!-- RecyclerView برای نمایش پارت‌ها -->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/levelsRecyclerView"
+        android:id="@+id/partsRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
