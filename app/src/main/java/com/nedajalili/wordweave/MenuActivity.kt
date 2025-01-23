@@ -6,13 +6,19 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
+import android.content.SharedPreferences
+
+
 class MenuActivity : AppCompatActivity() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var partAdapter: PartAdapter
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
+
+        sharedPreferences = getSharedPreferences("GameData", MODE_PRIVATE)
 
         recyclerView = findViewById(R.id.partsRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
@@ -35,14 +41,24 @@ class MenuActivity : AppCompatActivity() {
     private fun generateLevelsForPart(partNumber: Int): List<Level> {
         val start = (partNumber - 1) * 10 + 1
         return (start until start + 10).map { index ->
-            Level(index, "Level $index", index == 1 && partNumber == 1) // فقط مرحله ۱ از پارت ۱ باز است
+            val isLevelUnlocked = isLevelUnlocked(index)
+            Level(index, "Level $index", isLevelUnlocked)
         }
     }
 
+    private fun isLevelUnlocked(levelId: Int): Boolean {
+        return sharedPreferences.getBoolean("LEVEL_$levelId", levelId == 1)
+    }
 
     private fun onPartSelected(part: Part) {
         val intent = Intent(this, LevelsActivity::class.java)
         intent.putExtra("PART_ID", part.id)
         startActivity(intent)
+    }
+
+    fun unlockNextLevel(levelId: Int) {
+        val editor = sharedPreferences.edit()
+        editor.putBoolean("LEVEL_${levelId + 1}", true)
+        editor.apply()
     }
 }

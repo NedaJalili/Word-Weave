@@ -4,7 +4,31 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="@android:color/white">
+    android:background="#BB86FC">
+
+    <!-- نمایش نام مرحله -->
+    <TextView
+        android:id="@+id/levelTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Level 1"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:layout_marginBottom="32dp"
+        android:textColor="@android:color/white" />
+
+    <!-- نمایش تعداد جان‌ها -->
+    <TextView
+        android:id="@+id/livesTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Lives: 5"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:layout_marginBottom="24dp" />
 
     <!-- نمایش جای خالی برای کلمه -->
     <LinearLayout
@@ -13,8 +37,8 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
-        android:layout_marginBottom="24dp"
-        android:layoutDirection="ltr" /> <!-- اضافه کردن این ویژگی -->
+        android:layout_marginBottom="32dp"
+        android:layoutDirection="ltr" />
 
     <!-- نمایش حروف درهم‌ریخته -->
     <GridLayout
@@ -24,7 +48,7 @@
         android:rowCount="2"
         android:columnCount="4"
         android:gravity="center"
-        android:layout_marginBottom="24dp" />
+        android:layout_marginBottom="32dp" />
 
     <!-- پیام برنده شدن یا باختن -->
     <TextView
@@ -33,7 +57,7 @@
         android:layout_height="wrap_content"
         android:text=""
         android:textSize="18sp"
-        android:textAlignment="center"
+        android:gravity="center"
         android:textColor="@android:color/holo_red_dark"
         android:layout_marginBottom="16dp"
         android:visibility="gone" />
@@ -49,14 +73,4 @@
         android:textColor="@android:color/white"
         android:visibility="gone" />
 
-    <!-- نمایش تعداد جان‌ها -->
-    <TextView
-        android:id="@+id/livesTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Lives: 5"
-        android:textSize="16sp"
-        android:textColor="@android:color/black"
-        android:layout_marginBottom="16dp" />
 </LinearLayout>
