@@ -1,6 +1,6 @@
 package com.nedajalili.wordweave
 
-import android.content.Intent
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class LevelsAdapter(
     private val levels: List<Level>,
-    private val onLevelSelected: (Level) -> Unit // Lambda برای ارسال رویداد
+    private val onLevelSelected: (Level) -> Unit
 ) : RecyclerView.Adapter<LevelsAdapter.LevelViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LevelViewHolder {
@@ -23,17 +23,24 @@ class LevelsAdapter(
         holder.levelNumber.text = level.id.toString()
         holder.levelTitle.text = level.title
 
-        if (level.isLocked) {
+        // بررسی وضعیت قفل یا باز بودن مرحله با استفاده از SharedPreferences
+        val sharedPreferences = holder.itemView.context.getSharedPreferences("GameData", 0)
+        val isLevelUnlocked = sharedPreferences.getBoolean("LEVEL_${level.id}", level.id == 1) // مرحله 1 همیشه باز است
+
+        if (!isLevelUnlocked) {
             holder.lockIcon.visibility = View.VISIBLE
-            holder.levelTitle.setTextColor(android.graphics.Color.GRAY)
+            holder.levelTitle.setTextColor(Color.GRAY)
+            holder.itemView.isEnabled = false // غیرفعال کردن انتخاب مرحله قفل‌شده
         } else {
             holder.lockIcon.visibility = View.GONE
-            holder.levelTitle.setTextColor(android.graphics.Color.BLACK)
+            holder.levelTitle.setTextColor(Color.BLACK)
 
-            // تنظیم کلیک روی آیتم
+            // اجازه دادن به کاربر برای انتخاب مرحله اگر باز باشد
             holder.itemView.setOnClickListener {
-                onLevelSelected(level) // ارسال سطح انتخاب‌شده به Lambda
+                onLevelSelected(level)
             }
+
+            holder.itemView.isEnabled = true // فعال کردن انتخاب مرحله برای مراحل باز
         }
     }
 
@@ -45,3 +52,4 @@ class LevelsAdapter(
         val lockIcon: ImageView = itemView.findViewById(R.id.lockIcon)
     }
 }
+
